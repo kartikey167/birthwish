@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Georgia, serif;
+background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+max-width:500px;
+padding:20px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:#ff4d6d;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.card{
+display:none;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 40px rgba(0,0,0,0.3);
+margin-top:20px;
+}
+
+#message{
+white-space:pre-line;
+text-align:left;
+font-size:16px;
+line-height:1.6;
+}
+
+.flowers{
+font-size:40px;
+margin:10px;
+animation:bloom 3s infinite alternate;
+}
+
+@keyframes bloom{
+from{transform:scale(0.9)}
+to{transform:scale(1.2)}
+}
+
+.cake{
+font-size:70px;
+margin-top:20px;
+cursor:pointer;
+}
+
+.signature{
+margin-top:20px;
+font-weight:bold;
+color:#d6336c;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>💌 Open Your Birthday Letter</h2>
+
+<button onclick="openLetter()">Open Letter</button>
+
+<div class="card" id="card">
+
+<div class="flowers">🌸🌹🌷🌻</div>
+
+<p id="message"></p>
+
+<div class="cake" onclick="blowCandle()">🎂</div>
+<p>Tap the cake to blow the candle 🎉</p>
+
+<div class="signature">Your Dubey ji 💫</div>
+
+</div>
+
+</div>
+
+<audio id="music" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+const text = `Dear Suhhani ❤️
+
+I wish you a very happy birthday.
+
+I know we haven't met yet, but still I wanted to tell you something from my heart.
+
+The day you told me your birthday is on 9th March, I remember how excited I felt.
+
+Unfortunately we haven't met yet, but today still feels special to me.
+
+As for me, I'll celebrate quietly by wishing happiness for you.
+
+I hope today you feel loved, celebrated and surrounded by smiles.
+
+I'm grateful that I know you, even if just a little.
+
+Sometimes a small connection can still mean a lot.
+
+Happy Birthday again ✨`;
+
+let i = 0;
+
+function openLetter(){
+
+document.getElementById("card").style.display="block"
+
+document.getElementById("music").play()
+
+typeWriter()
+
+}
+
+function typeWriter(){
+
+if(i < text.length){
+
+document.getElementById("message").innerHTML += text.charAt(i)
+
+i++
+
+setTimeout(typeWriter,35)
+
+}
+
+}
+
+function blowCandle(){
+
+alert("Make a wish! 🎉 Happy Birthday!")
+
+}
+
+</script>
+
+</body>
+</html>
